@@ -2,7 +2,7 @@
 docker-golang-hi
 ================
 
-:Name:          jhermann/docker-golang-hi
+:Name:          jhermann/gohi
 :Description:   A golang multi-stage build container image example.
 :Maintainer:    Jürgen Hermann <jh@web.de>
 
