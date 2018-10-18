@@ -31,3 +31,6 @@ To look at the image's metadata, use ``docker inspect``:
 
 Leave out the ``jq`` part if you don't have that installed,
 it just colorizes the output.
+
+Using `prom/busybox:glibc` instead of `scratch` adds 6 MB in size,
+a shell, and the other debugging and introspection conveniences of a full base image.

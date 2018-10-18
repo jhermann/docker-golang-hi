@@ -6,6 +6,7 @@
 # Compile and link golang binary in a build container
 FROM golang:alpine AS builder
 RUN apk --update add --no-cache ca-certificates
+#FROM golang:stretch AS builder
 COPY *.go ./
 RUN env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
         go build -a -installsuffix cgo -ldflags="-w -s" -o /usr/local/bin/hi \
@@ -13,6 +14,7 @@ RUN env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
 
 # Create the runtime image
 FROM scratch AS runtime
+#FROM prom/busybox:glibc AS runtime
 LABEL maintainer="Juergen Hermann <jh@web.de>"
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.name="jhermann/gohi"
